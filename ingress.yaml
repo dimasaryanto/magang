@@ -1,0 +1,13 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: coba-ingress
+spec:
+  rules:
+   host: hello-world.coba
+   http:
+      paths:
+      - path: /
+        backend:
+          serviceName: web
+          servicePort: 8080
