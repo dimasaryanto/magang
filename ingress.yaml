@@ -1,13 +1,18 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: coba-ingress
+  name: loki-grafana
+  annotations:
+    kubernetes.io/ingress.class: ingress-nginx
 spec:
   rules:
-   host: hello-world.coba
+   host: grafana.test
    http:
       paths:
-      - path: /
+      - pathType: Prefix
+        path: "/"
         backend:
-          serviceName: web
-          servicePort: 8080
+          service:
+            name: loki-grafana
+            port:
+              number: 80
