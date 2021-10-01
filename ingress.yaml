@@ -4,8 +4,7 @@ metadata:
   name: loki-grafana
 spec:
   rules:
-   host: grafana.test
-   -http:
+  - http:
       paths:
       - pathType: Prefix
         path: /
