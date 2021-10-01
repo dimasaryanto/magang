@@ -1,9 +1,7 @@
-apiVersion: networking.k8s.io/v1beta1
+apiVersion: networking.k8s.io/V1
 kind: Ingress
 metadata:
   name: loki-grafana
-  annotations:
-    kubernetes.io/ingress.class: ingress-nginx
 spec:
   rules:
    host: grafana.test
