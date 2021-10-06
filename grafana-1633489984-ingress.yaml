@@ -5,7 +5,8 @@ metadata:
   namespace: loki-grafana
 spec:
   rules:
-  - http:
+  - host: test.geschool.id
+    http:
       paths:
       - pathType: Prefix
         path: /
