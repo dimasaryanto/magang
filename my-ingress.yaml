@@ -1,28 +1,28 @@
-apiVersion: networking.k8s.io/v1
-kind: Ingress
+apiVersion: "networking.k8s.io/v1"
+kind: "Ingress"
 metadata:
-  name: my-ingress
+  name: "my-ingress"
   annotations:
-    kubernetes.io/ingress.class: nginx
+    kubernetes.io/ingress.class: "nginx"
 spec:
   rules:
-  - host: grafana.test.geschool.id
+  - host: "grafana.test.geschool.id"
     http:
       paths:
-      - pathType: Exact
+      - pathType: "Prefix"
         path: "/"
         backend:
           service:
-            name: grafana-1633489984
+            name: "grafana-1633489984"
             port:
               number: 80
-  - host: loki.test.geschool.id
+  - host: "loki.test.geschool.id"
     http:
       paths:
-      - pathType: Exact
+      - pathType: "Prefix"
         path: "/"
         backend:
           service:
-            name:  loki-stack-1633489134
+            name:  "loki-stack-1633489134"
             port:
               number: 3100
