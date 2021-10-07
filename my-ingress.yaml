@@ -6,23 +6,23 @@ metadata:
     kubernetes.io/ingress.class: nginx
 spec:
   rules:
-  - host: grafana-1633489984.test.geschool.id
+  - host: grafana.test.geschool.id
     http:
       paths:
       - pathType: Prefix
         path: "/"
         backend:
           service:
-            name: my-ingress-first
+            name: grafana-1633489984
             port:
               number: 80
-  - host: loki-stack-1633489134.test.geschool.id
+  - host: loki.test.geschool.id
     http:
       paths:
       - pathType: Prefix
         path: "/"
         backend:
           service:
-            name: my-ingress-second
+            name:  loki-stack-1633489134
             port:
               number: 3100
