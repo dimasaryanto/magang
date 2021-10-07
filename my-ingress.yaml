@@ -9,7 +9,7 @@ spec:
   - host: grafana.test.geschool.id
     http:
       paths:
-      - pathType: Prefix
+      - pathType: ImplementationSpecific
         path: "/"
         backend:
           service:
@@ -19,7 +19,7 @@ spec:
   - host: loki.test.geschool.id
     http:
       paths:
-      - pathType: Prefix
+      - pathType: ImplementationSpecific
         path: "/"
         backend:
           service:
