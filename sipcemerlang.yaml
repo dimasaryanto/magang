@@ -1,0 +1,33 @@
+apiVersion: apps/v1 
+kind: Deployment 
+metadata: 
+  name: cemerlang 
+  namespace: sicermat-test 
+  labels: 
+    app: sipcemerlang 
+spec: 
+  replicas: 1 
+  selector: 
+    matchLabels: 
+      app: sipcemerlang 
+  template: 
+    metadata: 
+      labels: 
+        app: sipcemerlang 
+    spec: 
+      containers: 
+      - name: sipcemerlang:1.0 
+        image: valentinusdimas/sipcemerlang 
+        ports: 
+        - containerPort: 80
+        
+   ---
+apiVersion: v1
+kind: Service
+metadata:
+  name: sipcemerlang-svc
+  namespace: sicermat-test
+spec:
+  type: ClusterIP
+  ports:
+  - port: 3000
