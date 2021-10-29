@@ -20,7 +20,9 @@ spec:
         image: valentinusdimas/sipcemerlang
       - containerPort: 80
         Protocol: TCP
+       
    ---
+   
 apiVersion: v1
 kind: Service
 metadata:
