@@ -17,7 +17,9 @@ spec:
     spec: 
       containers: 
       - name: sipcemerlang:1.0 
-        image: valentinusdimas/sipcemerlang      
+        image: valentinusdimas/sipcemerlang
+      - containerPort: 80
+        Protocol: TCP
    ---
 apiVersion: v1
 kind: Service
