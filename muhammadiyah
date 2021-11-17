@@ -1,0 +1,22 @@
+apiVersion: apps/v1 
+kind: Deployment 
+metadata: 
+  name: muh-login-diy 
+  namespace: muh-diy 
+  labels: 
+    app: muh-diy 
+spec: 
+  replicas: 1 
+  selector: 
+    matchLabels: 
+      app: muh-diy 
+  template: 
+    metadata: 
+      labels: 
+        app: muh-diy 
+    spec: 
+      containers: 
+      - name: muhammadiyah:latest 
+        image: 131100/muhammadiyah
+      - containerPort: 80
+        Protocol: TCP
