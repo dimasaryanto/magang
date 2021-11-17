@@ -20,3 +20,35 @@ spec:
         image: 131100/muhammadiyah
       - containerPort: 80
         Protocol: TCP
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: sipcemerlang-svc
+  namespace: sicermat-test
+spec:
+  type: ClusterIP
+  ports:
+  - port: 80
+  selector:
+    app: sipcemerlang
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: sipcemerlang-ing
+  namespace: sicermat-test
+  annotations:
+    kubernetes.io/ingress.class: nginx
+spec:
+  rules:
+  - host: cemerlang.test.geschool.id
+    http:
+      paths:
+      - pathType: Prefix
+        path: /
+        backend:
+          service:
+            name: sipcemerlang-svc
+            port:
+              number: 80
