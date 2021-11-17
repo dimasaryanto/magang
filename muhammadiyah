@@ -1,52 +1,52 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: sipcemerlang
-  namespace: sicermat-test
+  name: muhdiy
+  namespace: muh-diy
   labels:
-    app: sipcemerlang
+    app: muhdiy
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: sipcemerlang
+      app: muhdiy
   template:
     metadata:
       labels:
-        app: sipcemerlang
+        app: muhdiy
     spec:
       containers:
-      - name: sipcemerlang
-        image: valentinusdimas/sipcemerlang
+      - name: muhdiy
+        image: 131100/muhammadiyah
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: sipcemerlang-svc
-  namespace: sicermat-test
+  name: muhdiy-svc
+  namespace: muh-diy
 spec:
   type: ClusterIP
   ports:
   - port: 80
   selector:
-    app: sipcemerlang
+    app: muhdiy
 ---
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: sipcemerlang-ing
-  namespace: sicermat-test
+  name: muhdiy-ing
+  namespace: muh-diy
   annotations:
     kubernetes.io/ingress.class: nginx
 spec:
   rules:
-  - host: cemerlang.test.geschool.id
+  - host: muh-diy.test.geschool.id
     http:
       paths:
       - pathType: Prefix
         path: /
         backend:
           service:
-            name: sipcemerlang-svc
+            name: muhdiy-svc
             port:
               number: 80
