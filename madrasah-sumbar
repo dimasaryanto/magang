@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: madsum
-        image: 131100/madrasah
+        image: 131100/madrasah:v1
 ---
 apiVersion: v1
 kind: Service
