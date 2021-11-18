@@ -1,0 +1,52 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: madsum
+  namespace: mad-sumbar
+  labels:
+    app: madsum
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: madsum
+  template:
+    metadata:
+      labels:
+        app: madsum
+    spec:
+      containers:
+      - name: madsum
+        image: 131100/madrasah
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: madsum-svc
+  namespace: mad-sumbar
+spec:
+  type: ClusterIP
+  ports:
+  - port: 80
+  selector:
+    app: madsum
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: madsum-ing
+  namespace: mad-sumbar
+  annotations:
+    kubernetes.io/ingress.class: nginx
+spec:
+  rules:
+  - host: mad-sumbar.test.geschool.id
+    http:
+      paths:
+      - pathType: Prefix
+        path: /
+        backend:
+          service:
+            name: madsum-svc
+            port:
+              number: 80
