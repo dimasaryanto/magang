@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: mtsdiy
-        image: 131100/mts
+        image: 131100/mtsv1
 ---
 apiVersion: v1
 kind: Service
