@@ -160,12 +160,6 @@ spec:
         emptyDir: {}
       - name: app-runtime
         emptyDir: {}
-      - name: nginx-config
-        configMap:
-          name: nginx-config
-          items:
-          - key: config
-            path: default.conf
       - name: fpm-config
         configMap:
           name: fpm-config
