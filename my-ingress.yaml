@@ -13,5 +13,5 @@ spec:
               service:
                 name: grafana-1638494931
                 port:
-                  number: 8080
+                  number: 80
             path: /
