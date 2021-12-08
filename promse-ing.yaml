@@ -16,7 +16,17 @@ spec:
           service:
             name: loki
             port:
-              number: 3100   
+              number: 3100
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ing-LS
+  namespace: monitoring
+  annotations:
+    kubernetes.io/ingress.class: nginx
+spec:
+  rules:
    - host: ps.test.geschool.id
     http:
       paths:
