@@ -1,7 +1,7 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: ing-LS
+  name: ing-lk
   namespace: monitoring
   annotations:
     kubernetes.io/ingress.class: nginx
@@ -21,7 +21,7 @@ spec:
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: ing-LS
+  name: ing-ps
   namespace: monitoring
   annotations:
     kubernetes.io/ingress.class: nginx
